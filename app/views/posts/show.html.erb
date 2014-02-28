@@ -1,3 +1,8 @@
-<h4>HEYYY you! You are viewing <%= @post.url %></h4>
-
-<%= link_to 'Go back to all posts', posts_path %>
+<p>
+  <%= render @post.categories %>
+</p>
+<%= render 'shared/content_title', title: @post.title %>
+<p>
+<%= @post.description %>
+</p>
+<hr/>
