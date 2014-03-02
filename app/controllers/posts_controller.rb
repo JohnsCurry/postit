@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-  
+    @post.creator = User.last
     if @post.save
       flash[:notice] = "Your post has been saved!"
       redirect_to posts_path
