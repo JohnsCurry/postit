@@ -1,28 +1,14 @@
 <h4>new posts</h4>
 
-<h5>Pure HTML form</h5>
-<form action='/posts' method='POST'>
-  Title:<input type='text' name='some_title'>
-  <br>
-  <input type='Submit'>
-</form>
-
-<h4>Rails form helper</h4>
-
-<%= form_tag '/posts' do %>
-  <%= label_tag :title %>
-  <%= text_field_tag :title, "Put your title here" %>
-  <br/>
-  <%= submit_tag 'Submit this post', class: 'btn btn-primary' %>
-<% end %>
-
 <h3>Model-backed form helpers</h3>
   <% if @post.errors.any? %>
+  <div class='alert alert-error'>
     <% @post.errors.full_messages.each do |msg| %>
     <ul>
       <li><%= msg %></li>
     </ul>
       <% end %>
+  </div>
   <% end %>
 
 <%= form_for @post do |f| %>
