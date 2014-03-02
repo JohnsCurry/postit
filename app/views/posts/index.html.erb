@@ -9,6 +9,8 @@
       <p>
         <span class='quiet'>Posted by </span><%= post.creator.username %>
         <small>at <%= post.created_at %></small>
+        <br>
+        (<%= link_to 'edit', edit_post_path(post) %>)
       </p>
       <small>
       <span>
