@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Your post has been saved!"
       redirect_to posts_path
     else
-      render 'new'
+      render 'new' hello
     end
 
   end
