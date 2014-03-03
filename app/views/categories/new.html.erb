@@ -1,5 +1,18 @@
-<h4>Add Category</h4>
+<%= render 'shared/content_title', title: "New Category" %>
+
+<% if @category.errors.any? %>
+  <div class='alert alert-error'>
+    <% @category.errors.full_messages.each do |msg| %>
+    <ul>
+      <li><%= msg %></li>
+    </ul>
+      <% end %>
+  </div>
+  <% end %>
 
 <%= form_for @category do |f| %>
-  <%= f.label :category %>
+  <%= f.label      :name %>
+  <%= f.text_field :name %>
+  <br/>
+  <%= f.submit "Create Category" %>
 <% end %>
