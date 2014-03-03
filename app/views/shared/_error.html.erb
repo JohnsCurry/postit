@@ -1,6 +1,6 @@
-<% if @category.errors.any? %>
+<% if object.errors.any? %>
   <div class='alert alert-error'>
-    <% @category.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
     <ul>
       <li><%= msg %></li>
     </ul>
