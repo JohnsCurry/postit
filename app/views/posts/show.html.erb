@@ -1,3 +1,5 @@
+<h4>Hello, you are viewing <%= link_to @post.title, fix_url(@post.url) %></h4>
+
 <p class='pull-right'>
   [<%= link_to 'edit', edit_post_path(@post) %>]
 </p>
@@ -11,10 +13,22 @@
 <hr/>
 
 <h5>Create a comment</h5>
+<%= render 'shared/error', object: @comment %>
 
 <%= form_for [@post, @comment] do |f| %>
-  <%= f.text_area :body %>
+  <%= f.label     :body, 'Type your comment here' %>
+  <%= f.text_area :body, rows: 3, class: 'span4'%>
   <br/>
   <%= f.submit "Create Comment", class: "btn btn-primary" %>
+
+<% end %>
+
+<h4>Comments:</h4>
+
+<% @post.comments.each do |comment| %>
+  <div class='well'>
+    <em>"<%= comment.body %>"</em>
+    by: <%= comment.creator.username %>
+  </div>
 
 <% end %>
