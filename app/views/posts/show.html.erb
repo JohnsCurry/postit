@@ -29,6 +29,7 @@
   <div class='well'>
     <em>"<%= comment.body %>"</em>
     by: <%= comment.creator.username %>
+    at: <%= display_datetime(comment.created_at) %>
   </div>
 
 <% end %>
