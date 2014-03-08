@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show] 
 
   def index
@@ -36,6 +36,12 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def vote
+    @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    redirect_to :back
+
   end
 
   private
