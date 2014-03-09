@@ -14,7 +14,10 @@ before_action :require_user
   end
 
   def vote
-    @vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
+    #@vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
+    comment = Comment.find(params[:id])
+    Vote.create(voteable: comment, creator: current_user, vote: params[:vote])
+    flash[:notice] = "Your vote counted"
     redirect_to :back
   end
 

@@ -6,17 +6,11 @@ PostitTemplate::Application.routes.draw do
   post '/login',    to: 'sessions#create'
   get  '/logout',   to: 'sessions#destroy'
 
-  #get '/posts', to: 'posts#index'
-  #get '/posts/:id', to: 'posts#show'
-  #get '/posts/new', to: 'posts#new'
-  #post '/posts', to: 'posts#create'
-  #get '/posts/:id/edit', to: 'posts#edit'
-  #patch '/posts/:id', to: 'posts#update'
 
   resources :posts, except: [:destroy] do
 
       member do
-        post :vote
+        post :vote #replace :vote with:   'vote'
       end
 
     resources :comments, only: [:create] do
