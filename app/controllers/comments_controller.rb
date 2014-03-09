@@ -16,8 +16,14 @@ before_action :require_user
   def vote
     #@vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
     comment = Comment.find(params[:id])
-    Vote.create(voteable: comment, creator: current_user, vote: params[:vote])
-    flash[:notice] = "Your vote counted"
+    vote = Vote.create(voteable: comment, creator: current_user, vote: params[:vote])
+    
+    if vote.valid?
+      flash[:notice] = "Your vote counted!"
+    else
+      flash[:error]  = "You can only vote on a comment once!"
+    end
+
     redirect_to :back
   end
 
