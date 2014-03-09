@@ -12,4 +12,12 @@ before_action :require_user
     end
 
   end
+
+  def vote
+    @vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
+    redirect_to :back
+  end
+
+
+
 end
