@@ -27,5 +27,3 @@
   - heroku restart
   - heroku run console
   - heroku help
-
-hotfix change
