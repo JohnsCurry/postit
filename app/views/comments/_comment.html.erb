@@ -6,7 +6,6 @@
       <% end %>
     <% end %>
     <br/>
-    <%= comment.total_votes %> votes
     <br/>
     <% if logged_in? %>
       <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
